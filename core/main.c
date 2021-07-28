@@ -54,8 +54,10 @@ int main(
    void *theEnv;
 
    theEnv = CreateEnvironment();
-   RerouteStdin(theEnv,argc,argv);
-   CommandLoop(theEnv);
+   EnvLoad(theEnv,argv[1]);
+   EnvRun(theEnv,-1);
+   //RerouteStdin(theEnv,argc,argv);
+   //CommandLoop(theEnv);
 
    /*==================================================================*/
    /* Control does not normally return from the CommandLoop function.  */

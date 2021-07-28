@@ -29,13 +29,13 @@ OBJS = agenda.o analysis.o argacces.o bload.o bmathfun.o bsave.o \
  	tmpltpsr.o tmpltrhs.o tmpltutl.o userdata.o userfunctions.o utility.o watch.o
 
 .c.o :
-	gcc -c -O3 -Wall  -Wundef -Wpointer-arith -Wshadow -Wcast-qual \
+	$(CC) -c -O3 -Wall  -Wundef -Wpointer-arith -Wshadow -Wcast-qual \
 	    -Winline -Wmissing-declarations -Wredundant-decls \
 	    -Wmissing-prototypes -Wnested-externs \
 	    -Wstrict-prototypes -Waggregate-return -Wno-implicit $<
 
 clips : $(OBJS)
-	gcc -o clips $(OBJS) -lm  
+	$(CC) -o clips $(OBJS) -lm  
 
 # Dependencies generated using "gcc -MM *.c"
 

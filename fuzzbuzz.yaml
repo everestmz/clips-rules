@@ -1,0 +1,12 @@
+language: c
+targets:
+    - name: clips-rules # this name should be unique within the project
+      setup: # setup steps specific for this target
+        - cd core/ 
+        - CC=$FUZZ_STANDALONE_CC CXX=$FUZZ_STANDALONE_CXX ./configure --disable-shared 
+        - make -f ../makefiles/makefile.gcc
+      corpus: testcases # a directory containing initial test cases
+      dictionary: ./CLIPS.dict
+      harness:
+         binary: ./core/clips @@
+         input: file
