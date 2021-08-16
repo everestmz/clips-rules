@@ -47,6 +47,23 @@
 /* main: Starts execution of the expert */
 /*   system development environment.    */
 /****************************************/
+void fuzzclips(const char * Data) {
+  FILE *f = fopen("/tmp/file.txt", "w");
+  if (f == NULL)
+  {
+     printf("Error opening file!\n");
+     exit(1);
+  }
+
+  // print some text
+  fprintf(f, Data);
+  fclose(f);
+  void *theEnv;
+  theEnv = CreateEnvironment();
+  EnvLoad(theEnv, "/tmp/file.txt");
+  EnvRun(theEnv,-1);
+  DestroyEnvironment(theEnv);
+}
 int main(
   int argc,
   char *argv[])
