@@ -109,6 +109,7 @@ globle int EnvPrintRouter(
   const char *logicalName,
   const char *str)
   {
+    return(0);
    struct router *currentPtr;
 
    /*===================================================*/
